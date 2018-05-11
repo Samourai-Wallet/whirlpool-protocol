@@ -10,7 +10,6 @@ public class WhirlpoolProtocol {
     // STOMP endpoints
     public static final String ENDPOINT_ROUND_STATUS = "/roundStatus";
     public static final String ENDPOINT_REGISTER_INPUT = "/registerInput";
-    public static final String ENDPOINT_REGISTER_OUTPUT = "/registerOutput";
     public static final String ENDPOINT_REVEAL_OUTPUT = "/revealOutput";
     public static final String ENDPOINT_SIGNING = "/signing";
 
