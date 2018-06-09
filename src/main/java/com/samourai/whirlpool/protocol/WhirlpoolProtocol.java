@@ -8,7 +8,6 @@ public class WhirlpoolProtocol {
     public static final String SOCKET_SUBSCRIBE_QUEUE = "/queue";
 
     // STOMP endpoints
-    public static final String ENDPOINT_ROUND_STATUS = "/roundStatus";
     public static final String ENDPOINT_REGISTER_INPUT = "/registerInput";
     public static final String ENDPOINT_REVEAL_OUTPUT = "/revealOutput";
     public static final String ENDPOINT_SIGNING = "/signing";
