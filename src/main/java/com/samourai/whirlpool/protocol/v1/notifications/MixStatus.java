@@ -1,9 +1,9 @@
 package com.samourai.whirlpool.protocol.v1.notifications;
 
-public enum RoundStatus {
+public enum MixStatus {
     REGISTER_INPUT,
     REGISTER_OUTPUT,
-    REVEAL_OUTPUT_OR_BLAME,
+    REVEAL_OUTPUT,
     SIGNING,
     SUCCESS,
     FAIL

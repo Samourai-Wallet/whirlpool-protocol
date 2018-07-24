@@ -7,7 +7,7 @@ public class FailRoundStatusNotification extends RoundStatusNotification {
     }
 
     public FailRoundStatusNotification(String roundId) {
-        super(RoundStatus.FAIL, roundId);
+        super(MixStatus.FAIL, roundId);
     }
 
 }

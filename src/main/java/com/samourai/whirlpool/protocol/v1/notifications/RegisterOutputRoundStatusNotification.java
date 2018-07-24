@@ -8,7 +8,7 @@ public class RegisterOutputRoundStatusNotification extends RoundStatusNotificati
     }
 
     public RegisterOutputRoundStatusNotification(String roundId, String registerOutputUrl) {
-        super(RoundStatus.REGISTER_OUTPUT, roundId);
+        super(MixStatus.REGISTER_OUTPUT, roundId);
         this.registerOutputUrl = registerOutputUrl;
     }
 

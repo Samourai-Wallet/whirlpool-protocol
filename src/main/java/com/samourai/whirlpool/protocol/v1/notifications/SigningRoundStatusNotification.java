@@ -9,7 +9,7 @@ public class SigningRoundStatusNotification extends RoundStatusNotification {
     }
 
     public SigningRoundStatusNotification(String roundId, byte[] transaction) {
-        super(RoundStatus.SIGNING, roundId);
+        super(MixStatus.SIGNING, roundId);
         this.transaction = transaction;
     }
 

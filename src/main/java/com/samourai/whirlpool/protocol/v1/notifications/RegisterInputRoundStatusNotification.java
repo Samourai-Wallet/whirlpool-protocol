@@ -11,7 +11,7 @@ public class RegisterInputRoundStatusNotification extends RoundStatusNotificatio
     }
 
     public RegisterInputRoundStatusNotification(String roundId, byte[] publicKey, String networkId, long denomination, long minerFee) {
-        super(RoundStatus.REGISTER_INPUT, roundId);
+        super(MixStatus.REGISTER_INPUT, roundId);
         this.publicKey = publicKey;
         this.networkId = networkId;
         this.denomination = denomination;

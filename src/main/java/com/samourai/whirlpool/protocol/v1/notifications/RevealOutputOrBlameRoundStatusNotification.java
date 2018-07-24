@@ -7,7 +7,7 @@ public class RevealOutputOrBlameRoundStatusNotification extends RoundStatusNotif
     }
 
     public RevealOutputOrBlameRoundStatusNotification(String roundId) {
-        super(RoundStatus.REVEAL_OUTPUT_OR_BLAME, roundId);
+        super(MixStatus.REVEAL_OUTPUT, roundId);
     }
 
 }
