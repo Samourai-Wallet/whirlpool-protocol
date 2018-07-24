@@ -1,6 +1,5 @@
 package com.samourai.whirlpool.protocol.v1.messages;
 
-public class RevealOutputRequest {
+public class MixStatusRequest {
     public String mixId;
-    public String bordereau;
 }

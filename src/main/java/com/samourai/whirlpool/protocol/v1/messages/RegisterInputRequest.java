@@ -1,7 +1,7 @@
 package com.samourai.whirlpool.protocol.v1.messages;
 
 public class RegisterInputRequest {
-    public String roundId;
+    public String mixId;
 
     public String utxoHash;
     public long utxoIndex;

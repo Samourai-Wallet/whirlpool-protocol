@@ -1,17 +1,17 @@
 package com.samourai.whirlpool.protocol.v1.notifications;
 
-public class RegisterInputRoundStatusNotification extends RoundStatusNotification {
+public class RegisterInputMixStatusNotification extends MixStatusNotification {
     private byte[] publicKey;
     private String networkId;
     private long denomination;
     private long minerFee;
 
-    public RegisterInputRoundStatusNotification() {
+    public RegisterInputMixStatusNotification() {
 
     }
 
-    public RegisterInputRoundStatusNotification(String roundId, byte[] publicKey, String networkId, long denomination, long minerFee) {
-        super(MixStatus.REGISTER_INPUT, roundId);
+    public RegisterInputMixStatusNotification(String mixId, byte[] publicKey, String networkId, long denomination, long minerFee) {
+        super(MixStatus.REGISTER_INPUT, mixId);
         this.publicKey = publicKey;
         this.networkId = networkId;
         this.denomination = denomination;
