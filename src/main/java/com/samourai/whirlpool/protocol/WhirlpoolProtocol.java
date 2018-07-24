@@ -17,6 +17,12 @@ public class WhirlpoolProtocol {
      */
     public static final String HEADER_MESSAGE_TYPE = "messageType";
 
+    /**
+     * Header specifying the protocol version.
+     */
+    public static final String HEADER_PROTOCOL_VERSION = "protocolVersion";
+    public static final String PROTOCOL_VERSION = "0.1";
+
     public WhirlpoolProtocol() {
     }
 }
