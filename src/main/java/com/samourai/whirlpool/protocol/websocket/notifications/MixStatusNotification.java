@@ -1,4 +1,4 @@
-package com.samourai.whirlpool.protocol.v1.notifications;
+package com.samourai.whirlpool.protocol.websocket.notifications;
 
 public abstract class MixStatusNotification {
     public MixStatus status;

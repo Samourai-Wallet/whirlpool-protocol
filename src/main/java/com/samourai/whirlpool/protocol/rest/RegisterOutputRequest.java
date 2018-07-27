@@ -1,4 +1,4 @@
-package com.samourai.whirlpool.protocol.v1.messages;
+package com.samourai.whirlpool.protocol.rest;
 
 public class RegisterOutputRequest {
     public String mixId;
