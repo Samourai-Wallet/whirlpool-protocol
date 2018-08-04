@@ -12,6 +12,9 @@ public class WhirlpoolProtocol {
     public static final String ENDPOINT_REVEAL_OUTPUT = "/revealOutput";
     public static final String ENDPOINT_SIGNING = "/signing";
 
+    // REST endpoints
+    public static final String ENDPOINT_POOLS = "/pools";
+
     /**
      * Header specifying the message type.
      */
@@ -21,7 +24,16 @@ public class WhirlpoolProtocol {
      * Header specifying the protocol version.
      */
     public static final String HEADER_PROTOCOL_VERSION = "protocolVersion";
-    public static final String PROTOCOL_VERSION = "0.1";
+
+    /**
+     * Header specifying the pool id.
+     */
+    public static final String HEADER_POOL_ID = "poolId";
+
+    /**
+     * Current protocol version.
+     */
+    public static final String PROTOCOL_VERSION = "0.2";
 
     public WhirlpoolProtocol() {
     }
