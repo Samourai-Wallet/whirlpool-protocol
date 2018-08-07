@@ -4,18 +4,20 @@ public class RegisterInputMixStatusNotification extends MixStatusNotification {
     private byte[] publicKey;
     private String networkId;
     private long denomination;
-    private long minerFee;
+    private long minerFeeMin;
+    private long minerFeeMax;
 
     public RegisterInputMixStatusNotification() {
 
     }
 
-    public RegisterInputMixStatusNotification(String mixId, byte[] publicKey, String networkId, long denomination, long minerFee) {
+    public RegisterInputMixStatusNotification(String mixId, byte[] publicKey, String networkId, long denomination, long minerFeeMin, long minerFeeMax) {
         super(MixStatus.REGISTER_INPUT, mixId);
         this.publicKey = publicKey;
         this.networkId = networkId;
         this.denomination = denomination;
-        this.minerFee = minerFee;
+        this.minerFeeMin = minerFeeMin;
+        this.minerFeeMax = minerFeeMax;
     }
 
     public byte[] getPublicKey() {
@@ -30,7 +32,11 @@ public class RegisterInputMixStatusNotification extends MixStatusNotification {
         return denomination;
     }
 
-    public long getMinerFee() {
-        return minerFee;
+    public long getMinerFeeMin() {
+        return minerFeeMin;
+    }
+
+    public long getMinerFeeMax() {
+        return minerFeeMax;
     }
 }

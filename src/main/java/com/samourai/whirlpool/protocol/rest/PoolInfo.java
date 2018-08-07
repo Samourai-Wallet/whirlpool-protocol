@@ -5,7 +5,8 @@ import com.samourai.whirlpool.protocol.websocket.notifications.MixStatus;
 public class PoolInfo {
     public String poolId;
     public long denomination; // in satoshis
-    public long minerFee; // in satoshis
+    public long minerFeeMin; // in satoshis
+    public long minerFeeMax; // in satoshis
     public int minAnonymitySet;
 
     // mix info
