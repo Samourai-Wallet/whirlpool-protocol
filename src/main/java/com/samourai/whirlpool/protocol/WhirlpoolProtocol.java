@@ -37,4 +37,17 @@ public class WhirlpoolProtocol {
 
     public WhirlpoolProtocol() {
     }
+
+    public static long computeInputBalanceMin(long denomination, boolean liquidity, long minerFeeMin) {
+        long amount = denomination;
+        if (liquidity) {
+            amount += minerFeeMin;
+        }
+        return amount;
+    }
+
+    public static long computeInputBalanceMax(long denomination, boolean liquidity, long minerFeeMax) {
+        long amount = denomination + minerFeeMax;
+        return amount;
+    }
 }
