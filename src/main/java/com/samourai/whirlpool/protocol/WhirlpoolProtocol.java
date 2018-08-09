@@ -40,7 +40,7 @@ public class WhirlpoolProtocol {
 
     public static long computeInputBalanceMin(long denomination, boolean liquidity, long minerFeeMin) {
         long amount = denomination;
-        if (liquidity) {
+        if (!liquidity) {
             amount += minerFeeMin;
         }
         return amount;
