@@ -9,6 +9,5 @@ public class RegisterInputRequest {
     public byte[] pubkey;
     public String signature;
     public byte[] blindedBordereau;
-    public String paymentCode;
     public boolean liquidity;
 }
