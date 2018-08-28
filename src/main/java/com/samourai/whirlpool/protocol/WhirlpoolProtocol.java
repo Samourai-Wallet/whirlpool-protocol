@@ -13,6 +13,7 @@ public class WhirlpoolProtocol {
     public static final String ENDPOINT_SIGNING = "/signing";
 
     // REST endpoints
+    public static final String ENDPOINT_REGISTER_OUTPUT = "/registerOutput";
     public static final String ENDPOINT_POOLS = "/pools";
 
     /**
@@ -49,5 +50,10 @@ public class WhirlpoolProtocol {
     public static long computeInputBalanceMax(long denomination, boolean liquidity, long minerFeeMax) {
         long amount = denomination + minerFeeMax;
         return amount;
+    }
+
+    public static String computeRegisterOutputUrl(String server) {
+        String registerOutputUrl = "http://" + server + ENDPOINT_REGISTER_OUTPUT;
+        return registerOutputUrl;
     }
 }
