@@ -1,5 +1,11 @@
 package com.samourai.whirlpool.protocol;
 
+import com.samourai.whirlpool.protocol.beans.Utxo;
+import org.apache.commons.codec.digest.DigestUtils;
+
+import java.util.Collection;
+import java.util.stream.Collectors;
+
 public class WhirlpoolProtocol {
 
     // STOMP configuration
@@ -55,5 +61,11 @@ public class WhirlpoolProtocol {
     public static String computeRegisterOutputUrl(String server) {
         String registerOutputUrl = "http://" + server + ENDPOINT_REGISTER_OUTPUT;
         return registerOutputUrl;
+    }
+
+    public static String computeInputsHash(Collection<Utxo> inputs) {
+        String inputsString = inputs.parallelStream().map(input -> input.getHash() + String.valueOf(input.getIndex())).sorted().collect(Collectors.joining(";"));
+        String inputsHash = DigestUtils.sha512Hex(inputsString);
+        return inputsHash;
     }
 }
