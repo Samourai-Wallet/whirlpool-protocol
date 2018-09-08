@@ -10,4 +10,6 @@ public class RegisterInputRequest {
     public String signature;
     public byte[] blindedBordereau;
     public boolean liquidity;
+
+    public boolean testMode;
 }
