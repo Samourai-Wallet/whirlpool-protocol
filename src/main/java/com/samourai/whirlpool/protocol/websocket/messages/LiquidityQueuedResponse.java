@@ -1,5 +1,14 @@
 package com.samourai.whirlpool.protocol.websocket.messages;
 
-public class LiquidityQueuedResponse {
-    public boolean foo; // this class needs at least 1 property
+import com.samourai.whirlpool.protocol.websocket.WhirlpoolMessage;
+
+public class LiquidityQueuedResponse extends WhirlpoolMessage {
+
+    LiquidityQueuedResponse() {
+        super();
+    }
+
+    public LiquidityQueuedResponse(String mixId) {
+        super(mixId);
+    }
 }
