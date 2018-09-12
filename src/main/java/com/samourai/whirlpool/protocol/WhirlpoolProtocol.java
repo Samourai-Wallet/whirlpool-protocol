@@ -1,10 +1,13 @@
 package com.samourai.whirlpool.protocol;
 
 import com.samourai.whirlpool.protocol.beans.Utxo;
+import jdk.internal.joptsimple.internal.Strings;
 import org.apache.commons.codec.digest.DigestUtils;
 
+import java.util.ArrayList;
 import java.util.Collection;
-import java.util.stream.Collectors;
+import java.util.Collections;
+import java.util.List;
 
 public class WhirlpoolProtocol {
 
@@ -64,8 +67,13 @@ public class WhirlpoolProtocol {
         return registerOutputUrl;
     }
 
-    public static String computeInputsHash(Collection<Utxo> inputs) {
-        String inputsString = inputs.parallelStream().map(input -> input.getHash() + String.valueOf(input.getIndex())).sorted().collect(Collectors.joining(";"));
+    public static String computeInputsHash(Collection<Utxo> utxos) {
+        List inputs = new ArrayList();
+        for (Utxo utxo : utxos) {
+            inputs.add(utxo.getHash() + String.valueOf(utxo.getIndex()));
+        }
+        Collections.sort(inputs);
+        String inputsString = Strings.join(inputs, ";");
         String inputsHash = DigestUtils.sha512Hex(inputsString);
         return inputsHash;
     }
