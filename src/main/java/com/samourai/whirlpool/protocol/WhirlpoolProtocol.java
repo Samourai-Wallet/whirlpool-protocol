@@ -1,7 +1,6 @@
 package com.samourai.whirlpool.protocol;
 
 import com.samourai.whirlpool.protocol.beans.Utxo;
-import jdk.internal.joptsimple.internal.Strings;
 import org.apache.commons.codec.digest.DigestUtils;
 
 import java.util.ArrayList;
@@ -73,8 +72,20 @@ public class WhirlpoolProtocol {
             inputs.add(utxo.getHash() + String.valueOf(utxo.getIndex()));
         }
         Collections.sort(inputs);
-        String inputsString = Strings.join(inputs, ";");
+        String inputsString = joinStrings(";", inputs);
         String inputsHash = DigestUtils.sha512Hex(inputsString);
         return inputsHash;
+    }
+
+    private static String joinStrings(String delimiter, Collection<String> strings) {
+        StringBuilder sb = new StringBuilder();
+        boolean first = true;
+        for (String str : strings) {
+            if (!first) {
+                sb.append(delimiter);
+            }
+            sb.append(str);
+        }
+        return sb.toString();
     }
 }
