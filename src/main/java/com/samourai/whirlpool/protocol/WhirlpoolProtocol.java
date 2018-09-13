@@ -85,6 +85,7 @@ public class WhirlpoolProtocol {
                 sb.append(delimiter);
             }
             sb.append(str);
+            first = false;
         }
         return sb.toString();
     }
