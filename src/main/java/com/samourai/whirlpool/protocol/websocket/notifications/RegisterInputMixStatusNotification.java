@@ -1,7 +1,7 @@
 package com.samourai.whirlpool.protocol.websocket.notifications;
 
 public class RegisterInputMixStatusNotification extends MixStatusNotification {
-    private byte[] publicKey;
+    private String publicKeyBase64;
     private String networkId;
     private long denomination;
     private long minerFeeMin;
@@ -11,17 +11,17 @@ public class RegisterInputMixStatusNotification extends MixStatusNotification {
 
     }
 
-    public RegisterInputMixStatusNotification(String mixId, byte[] publicKey, String networkId, long denomination, long minerFeeMin, long minerFeeMax) {
+    public RegisterInputMixStatusNotification(String mixId, String publicKeyBase64, String networkId, long denomination, long minerFeeMin, long minerFeeMax) {
         super(MixStatus.REGISTER_INPUT, mixId);
-        this.publicKey = publicKey;
+        this.publicKeyBase64 = publicKeyBase64;
         this.networkId = networkId;
         this.denomination = denomination;
         this.minerFeeMin = minerFeeMin;
         this.minerFeeMax = minerFeeMax;
     }
 
-    public byte[] getPublicKey() {
-        return publicKey;
+    public String getPublicKeyBase64() {
+        return publicKeyBase64;
     }
 
     public String getNetworkId() {
