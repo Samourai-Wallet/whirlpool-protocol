@@ -6,9 +6,9 @@ public class RegisterInputRequest {
     public String utxoHash;
     public long utxoIndex;
 
-    public byte[] pubkey;
+    public String pubkeyBase64;
     public String signature;
-    public byte[] blindedBordereau;
+    public String blindedBordereauBase64;
     public boolean liquidity;
 
     public boolean testMode;

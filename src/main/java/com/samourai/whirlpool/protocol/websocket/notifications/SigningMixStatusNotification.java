@@ -2,15 +2,15 @@ package com.samourai.whirlpool.protocol.websocket.notifications;
 
 public class SigningMixStatusNotification extends MixStatusNotification {
 
-    public byte[] transaction;
+    public String transactionBase64;
 
     public SigningMixStatusNotification() {
 
     }
 
-    public SigningMixStatusNotification(String mixId, byte[] transaction) {
+    public SigningMixStatusNotification(String mixId, String transactionBase64) {
         super(MixStatus.SIGNING, mixId);
-        this.transaction = transaction;
+        this.transactionBase64 = transactionBase64;
     }
 
 }
