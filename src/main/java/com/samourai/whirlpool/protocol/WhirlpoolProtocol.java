@@ -43,7 +43,7 @@ public class WhirlpoolProtocol {
     /**
      * Current protocol version.
      */
-    public static final String PROTOCOL_VERSION = "0.10";
+    public static final String PROTOCOL_VERSION = "0.11";
 
     public WhirlpoolProtocol() {
     }
