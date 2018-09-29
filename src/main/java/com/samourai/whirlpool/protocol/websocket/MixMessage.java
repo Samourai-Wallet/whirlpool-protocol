@@ -1,13 +1,13 @@
 package com.samourai.whirlpool.protocol.websocket;
 
-public abstract class WhirlpoolMessage {
+public abstract class MixMessage {
     public String mixId;
 
-    public WhirlpoolMessage() {
+    public MixMessage() {
 
     }
 
-    public WhirlpoolMessage(String mixId) {
+    public MixMessage(String mixId) {
         this.mixId = mixId;
     }
 }

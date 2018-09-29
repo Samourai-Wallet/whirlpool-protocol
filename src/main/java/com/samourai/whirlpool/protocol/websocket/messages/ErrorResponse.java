@@ -1,8 +1,8 @@
 package com.samourai.whirlpool.protocol.websocket.messages;
 
-import com.samourai.whirlpool.protocol.websocket.WhirlpoolMessage;
+import com.samourai.whirlpool.protocol.websocket.MixMessage;
 
-public class ErrorResponse extends WhirlpoolMessage {
+public class ErrorResponse extends MixMessage {
     public String message;
 
     public ErrorResponse() {

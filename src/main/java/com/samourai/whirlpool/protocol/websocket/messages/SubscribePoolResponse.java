@@ -1,27 +1,21 @@
-package com.samourai.whirlpool.protocol.websocket.notifications;
+package com.samourai.whirlpool.protocol.websocket.messages;
 
-public class RegisterInputMixStatusNotification extends MixStatusNotification {
-    private String publicKey64;
+public class SubscribePoolResponse {
     private String networkId;
     private long denomination;
     private long minerFeeMin;
     private long minerFeeMax;
 
-    public RegisterInputMixStatusNotification() {
+    public SubscribePoolResponse() {
 
     }
 
-    public RegisterInputMixStatusNotification(String mixId, String publicKey64, String networkId, long denomination, long minerFeeMin, long minerFeeMax) {
-        super(MixStatus.REGISTER_INPUT, mixId);
-        this.publicKey64 = publicKey64;
+    public SubscribePoolResponse(String networkId, long denomination, long minerFeeMin, long minerFeeMax) {
+        super();
         this.networkId = networkId;
         this.denomination = denomination;
         this.minerFeeMin = minerFeeMin;
         this.minerFeeMax = minerFeeMax;
-    }
-
-    public String getPublicKey64() {
-        return publicKey64;
     }
 
     public String getNetworkId() {

@@ -13,11 +13,11 @@ public class WhirlpoolProtocol {
     // STOMP configuration
     public static final String SOCKET_SUBSCRIBE_USER_PRIVATE = "/private";
     public static final String SOCKET_SUBSCRIBE_USER_REPLY = "/reply";
-    public static final String SOCKET_SUBSCRIBE_QUEUE = "/queue";
 
     // STOMP endpoints
     public static final String ENDPOINT_CONNECT = "/connect";
     public static final String ENDPOINT_REGISTER_INPUT = "/registerInput";
+    public static final String ENDPOINT_CONFIRM_INPUT = "/confirmInput";
     public static final String ENDPOINT_REVEAL_OUTPUT = "/revealOutput";
     public static final String ENDPOINT_SIGNING = "/signing";
 

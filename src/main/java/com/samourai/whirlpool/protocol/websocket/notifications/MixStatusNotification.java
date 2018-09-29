@@ -1,8 +1,8 @@
 package com.samourai.whirlpool.protocol.websocket.notifications;
 
-import com.samourai.whirlpool.protocol.websocket.WhirlpoolMessage;
+import com.samourai.whirlpool.protocol.websocket.MixMessage;
 
-public abstract class MixStatusNotification extends WhirlpoolMessage {
+public abstract class MixStatusNotification extends MixMessage {
     public MixStatus status;
 
     public MixStatusNotification() {

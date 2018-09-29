@@ -1,5 +1,6 @@
 package com.samourai.whirlpool.protocol.websocket.messages;
 
-public class MixStatusRequest {
+public class ConfirmInputRequest {
     public String mixId;
+    public String blindedBordereau64;
 }
