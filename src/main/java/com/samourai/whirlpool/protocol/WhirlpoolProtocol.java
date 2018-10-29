@@ -1,5 +1,6 @@
 package com.samourai.whirlpool.protocol;
 
+import com.samourai.wallet.util.Z85;
 import com.samourai.whirlpool.protocol.beans.Utxo;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -34,7 +35,9 @@ public class WhirlpoolProtocol {
   public static final String HEADER_POOL_ID = "poolId";
 
   /** Current protocol version. */
-  public static final String PROTOCOL_VERSION = "0.12";
+  public static final String PROTOCOL_VERSION = "0.13";
+
+  private static final Z85 z85 = Z85.getInstance();
 
   public WhirlpoolProtocol() {}
 
@@ -80,5 +83,13 @@ public class WhirlpoolProtocol {
       first = false;
     }
     return sb.toString();
+  }
+
+  public static byte[] decodeBytes(String encoded) {
+    return z85.decode(encoded);
+  }
+
+  public static String encodeBytes(byte[] data) {
+    return z85.encode(data);
   }
 }
