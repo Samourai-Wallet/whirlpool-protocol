@@ -10,6 +10,9 @@ import org.apache.commons.codec.digest.DigestUtils;
 
 public class WhirlpoolProtocol {
 
+  /** Current protocol version. */
+  public static final String PROTOCOL_VERSION = "0.14";
+
   // STOMP configuration
   public static final String SOCKET_SUBSCRIBE_USER_PRIVATE = "/private";
   public static final String SOCKET_SUBSCRIBE_USER_REPLY = "/reply";
@@ -34,12 +37,27 @@ public class WhirlpoolProtocol {
   /** Header specifying the pool id. */
   public static final String HEADER_POOL_ID = "poolId";
 
-  /** Current protocol version. */
-  public static final String PROTOCOL_VERSION = "0.13";
-
   private static final Z85 z85 = Z85.getInstance();
 
   public WhirlpoolProtocol() {}
+
+  public static String getUrlRegisterOutput(String server, boolean ssl) {
+    String protocol = ssl ? "https" : "http";
+    String url = protocol + "://" + server + ENDPOINT_REGISTER_OUTPUT;
+    return url;
+  }
+
+  public static String getUrlConnect(String server, boolean ssl) {
+    String protocol = ssl ? "wss" : "ws";
+    String url = protocol + "://" + server + ENDPOINT_CONNECT;
+    return url;
+  }
+
+  public static String getUrlFetchPools(String server, boolean ssl) {
+    String protocol = ssl ? "https" : "http";
+    String url = protocol + "://" + server + ENDPOINT_POOLS;
+    return url;
+  }
 
   public static long computeInputBalanceMin(
       long denomination, boolean liquidity, long minerFeeMin) {
@@ -54,11 +72,6 @@ public class WhirlpoolProtocol {
       long denomination, boolean liquidity, long minerFeeMax) {
     long amount = denomination + minerFeeMax;
     return amount;
-  }
-
-  public static String computeRegisterOutputUrl(String server) {
-    String registerOutputUrl = "http://" + server + ENDPOINT_REGISTER_OUTPUT;
-    return registerOutputUrl;
   }
 
   public static String computeInputsHash(Collection<Utxo> utxos) {
