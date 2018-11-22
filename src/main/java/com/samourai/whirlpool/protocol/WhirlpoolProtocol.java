@@ -11,22 +11,11 @@ import org.apache.commons.codec.digest.DigestUtils;
 public class WhirlpoolProtocol {
 
   /** Current protocol version. */
-  public static final String PROTOCOL_VERSION = "0.14";
+  public static final String PROTOCOL_VERSION = "0.15";
 
   // STOMP configuration
-  public static final String SOCKET_SUBSCRIBE_USER_PRIVATE = "/private";
-  public static final String SOCKET_SUBSCRIBE_USER_REPLY = "/reply";
-
-  // STOMP endpoints
-  public static final String ENDPOINT_CONNECT = "/connect";
-  public static final String ENDPOINT_REGISTER_INPUT = "/registerInput";
-  public static final String ENDPOINT_CONFIRM_INPUT = "/confirmInput";
-  public static final String ENDPOINT_REVEAL_OUTPUT = "/revealOutput";
-  public static final String ENDPOINT_SIGNING = "/signing";
-
-  // REST endpoints
-  public static final String ENDPOINT_REGISTER_OUTPUT = "/registerOutput";
-  public static final String ENDPOINT_POOLS = "/pools";
+  public static final String WS_PREFIX_USER_PRIVATE = "/private";
+  public static final String WS_PREFIX_USER_REPLY = "/reply";
 
   /** Header specifying the message type. */
   public static final String HEADER_MESSAGE_TYPE = "messageType";
@@ -43,19 +32,19 @@ public class WhirlpoolProtocol {
 
   public static String getUrlRegisterOutput(String server, boolean ssl) {
     String protocol = ssl ? "https" : "http";
-    String url = protocol + "://" + server + ENDPOINT_REGISTER_OUTPUT;
+    String url = protocol + "://" + server + WhirlpoolEndpoint.REST_REGISTER_OUTPUT;
     return url;
   }
 
   public static String getUrlConnect(String server, boolean ssl) {
     String protocol = ssl ? "wss" : "ws";
-    String url = protocol + "://" + server + ENDPOINT_CONNECT;
+    String url = protocol + "://" + server + WhirlpoolEndpoint.WS_CONNECT;
     return url;
   }
 
   public static String getUrlFetchPools(String server, boolean ssl) {
     String protocol = ssl ? "https" : "http";
-    String url = protocol + "://" + server + ENDPOINT_POOLS;
+    String url = protocol + "://" + server + WhirlpoolEndpoint.REST_REGISTER_OUTPUT;
     return url;
   }
 
