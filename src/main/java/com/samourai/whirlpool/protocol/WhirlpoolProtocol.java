@@ -9,7 +9,6 @@ import java.util.List;
 import org.apache.commons.codec.digest.DigestUtils;
 
 public class WhirlpoolProtocol {
-
   /** Current protocol version. */
   public static final String PROTOCOL_VERSION = "0.15";
 
@@ -27,6 +26,8 @@ public class WhirlpoolProtocol {
   public static final String HEADER_POOL_ID = "poolId";
 
   private static final Z85 z85 = Z85.getInstance();
+
+  private static final WhirlpoolFee whirlpoolFee = new WhirlpoolFee();
 
   public WhirlpoolProtocol() {}
 
@@ -93,5 +94,9 @@ public class WhirlpoolProtocol {
 
   public static String encodeBytes(byte[] data) {
     return z85.encode(data);
+  }
+
+  public static WhirlpoolFee getWhirlpoolFee() {
+    return whirlpoolFee;
   }
 }
