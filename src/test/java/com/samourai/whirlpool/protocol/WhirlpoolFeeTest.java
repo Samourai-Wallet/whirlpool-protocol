@@ -8,45 +8,45 @@ public class WhirlpoolFeeTest {
   private static final WhirlpoolFee whirlpoolFee = WhirlpoolProtocol.getWhirlpoolFee();
 
   @Test
-  public void encode() throws Exception {
+  public void encodeBytes() throws Exception {
     Assertions.assertEquals(
         "00010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
-        Hex.toHexString(whirlpoolFee.encode(0)));
+        Hex.toHexString(whirlpoolFee.encodeBytes(0)));
     Assertions.assertEquals(
         "00010000000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
-        Hex.toHexString(whirlpoolFee.encode(1)));
+        Hex.toHexString(whirlpoolFee.encodeBytes(1)));
     Assertions.assertEquals(
         "00010001e24000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
-        Hex.toHexString(whirlpoolFee.encode(123456)));
+        Hex.toHexString(whirlpoolFee.encodeBytes(123456)));
   }
 
   @Test
-  public void decode() throws Exception {
+  public void decodeBytes() throws Exception {
     Assertions.assertEquals(
         0,
         (int)
-            whirlpoolFee.decode(
+            whirlpoolFee.decodeBytes(
                 Hex.decode(
                     "00010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000")));
     Assertions.assertEquals(
         1,
         (int)
-            whirlpoolFee.decode(
+            whirlpoolFee.decodeBytes(
                 Hex.decode(
                     "00010000000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000")));
     Assertions.assertEquals(
         123456,
         (int)
-            whirlpoolFee.decode(
+            whirlpoolFee.decodeBytes(
                 Hex.decode(
                     "00010001e24000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000")));
   }
 
   @Test
-  public void reverse() throws Exception {
+  public void decodeEncodedBytes() throws Exception {
     for (int i = 0; i < 1000; i++) {
-      byte[] encoded = whirlpoolFee.encode(i);
-      Assertions.assertEquals(i, (int) whirlpoolFee.decode(encoded));
+      byte[] encoded = whirlpoolFee.encodeBytes(i);
+      Assertions.assertEquals(i, (int) whirlpoolFee.decodeBytes(encoded));
     }
   }
 }
