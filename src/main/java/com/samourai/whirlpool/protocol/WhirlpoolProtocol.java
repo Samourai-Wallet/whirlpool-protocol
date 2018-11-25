@@ -45,7 +45,7 @@ public class WhirlpoolProtocol {
 
   public static String getUrlFetchPools(String server, boolean ssl) {
     String protocol = ssl ? "https" : "http";
-    String url = protocol + "://" + server + WhirlpoolEndpoint.REST_REGISTER_OUTPUT;
+    String url = protocol + "://" + server + WhirlpoolEndpoint.REST_POOLS;
     return url;
   }
 
