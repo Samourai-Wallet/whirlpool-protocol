@@ -7,10 +7,11 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 import org.apache.commons.codec.digest.DigestUtils;
+import org.apache.commons.lang3.StringUtils;
 
 public class WhirlpoolProtocol {
   /** Current protocol version. */
-  public static final String PROTOCOL_VERSION = "0.15";
+  public static final String PROTOCOL_VERSION = "0.16";
 
   // STOMP configuration
   public static final String WS_PREFIX_USER_PRIVATE = "/private";
@@ -27,8 +28,6 @@ public class WhirlpoolProtocol {
 
   private static final Z85 z85 = Z85.getInstance();
 
-  private static final WhirlpoolFee whirlpoolFee = new WhirlpoolFee();
-
   public WhirlpoolProtocol() {}
 
   public static String getUrlRegisterOutput(String server, boolean ssl) {
@@ -43,10 +42,17 @@ public class WhirlpoolProtocol {
     return url;
   }
 
-  public static String getUrlFetchPools(String server, boolean ssl) {
+  public static String getUrlFetchPools(String server, boolean ssl, String scode) {
     String protocol = ssl ? "https" : "http";
     String url = protocol + "://" + server + WhirlpoolEndpoint.REST_POOLS;
+    if (!StringUtils.isEmpty(url)) {
+      url += "?scode=" + scode;
+    }
     return url;
+  }
+
+  public static String getUrlFetchPools(String server, boolean ssl) {
+    return getUrlFetchPools(server, ssl, null);
   }
 
   public static long computeInputBalanceMin(
@@ -89,14 +95,16 @@ public class WhirlpoolProtocol {
   }
 
   public static byte[] decodeBytes(String encoded) {
+    if (encoded == null) {
+      return null;
+    }
     return z85.decode(encoded);
   }
 
   public static String encodeBytes(byte[] data) {
+    if (data == null) {
+      return null;
+    }
     return z85.encode(data);
-  }
-
-  public static WhirlpoolFee getWhirlpoolFee() {
-    return whirlpoolFee;
   }
 }
