@@ -40,19 +40,19 @@ public class WhirlpoolFeeTest {
     // without feePayload
     assertEqualsFeeData(
         0,
-        new byte[] {0, 0},
+        null,
         whirlpoolFee.decodeBytes(
             Hex.decode(
                 "00010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000")));
     assertEqualsFeeData(
         1,
-        new byte[] {0, 0},
+        null,
         whirlpoolFee.decodeBytes(
             Hex.decode(
                 "00010000000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000")));
     assertEqualsFeeData(
         123456,
-        new byte[] {0, 0},
+        null,
         whirlpoolFee.decodeBytes(
             Hex.decode(
                 "00010001e24000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000")));
@@ -60,7 +60,7 @@ public class WhirlpoolFeeTest {
     // with feePayload
     assertEqualsFeeData(
         0,
-        new byte[] {0, 0},
+        null,
         whirlpoolFee.decodeBytes(
             Hex.decode(
                 "00010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000")));
