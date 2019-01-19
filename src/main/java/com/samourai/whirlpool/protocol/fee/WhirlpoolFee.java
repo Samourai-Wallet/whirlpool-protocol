@@ -15,7 +15,7 @@ public class WhirlpoolFee {
   private static WhirlpoolFee instance = null;
 
   private static final short FEE_VERSION = 1;
-  private static final short FEE_LENGTH = 64;
+  public static final short FEE_LENGTH = 64;
   public static final short FEE_PAYLOAD_LENGTH = 2;
   private static final byte[] FEE_PAYLOAD_DEFAULT = new byte[FEE_PAYLOAD_LENGTH]; // 00
 
