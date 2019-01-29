@@ -10,8 +10,9 @@ public class WhirlpoolEndpoint {
   public static final String WS_SIGNING = "/ws/signing";
 
   // REST endpoints
-  public static final String REST_REGISTER_OUTPUT = "/rest/registerOutput";
-  public static final String REST_POOLS = "/rest/pools";
+  public static final String REST_PREFIX = "/rest/";
+  public static final String REST_REGISTER_OUTPUT = REST_PREFIX + "registerOutput";
+  public static final String REST_POOLS = REST_PREFIX + "pools";
 
   public WhirlpoolEndpoint() {}
 }
