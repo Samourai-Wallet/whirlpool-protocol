@@ -3,17 +3,17 @@ package com.samourai.whirlpool.protocol.websocket.messages;
 public class SubscribePoolResponse {
   public String networkId;
   public long denomination;
-  public long minerFeeMin;
-  public long minerFeeMax;
+  public long mustMixBalanceMin;
+  public long mustMixBalanceMax;
 
   public SubscribePoolResponse() {}
 
   public SubscribePoolResponse(
-      String networkId, long denomination, long minerFeeMin, long minerFeeMax) {
+      String networkId, long denomination, long mustMixBalanceMin, long mustMixBalanceMax) {
     super();
     this.networkId = networkId;
     this.denomination = denomination;
-    this.minerFeeMin = minerFeeMin;
-    this.minerFeeMax = minerFeeMax;
+    this.mustMixBalanceMin = mustMixBalanceMin;
+    this.mustMixBalanceMax = mustMixBalanceMax;
   }
 }

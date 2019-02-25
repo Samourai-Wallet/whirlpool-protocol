@@ -11,7 +11,7 @@ import org.apache.commons.lang3.StringUtils;
 
 public class WhirlpoolProtocol {
   /** Current protocol version. */
-  public static final String PROTOCOL_VERSION = "0.16";
+  public static final String PROTOCOL_VERSION = "0.17";
 
   // STOMP configuration
   public static final String WS_PREFIX_USER_PRIVATE = "/private";
@@ -56,18 +56,19 @@ public class WhirlpoolProtocol {
   }
 
   public static long computeInputBalanceMin(
-      long denomination, boolean liquidity, long minerFeeMin) {
-    long amount = denomination;
-    if (!liquidity) {
-      amount += minerFeeMin;
+      long denomination, long mustMixBalanceMin, boolean liquidity) {
+    if (liquidity) {
+      return denomination;
     }
-    return amount;
+    return mustMixBalanceMin;
   }
 
   public static long computeInputBalanceMax(
-      long denomination, boolean liquidity, long minerFeeMax) {
-    long amount = denomination + minerFeeMax;
-    return amount;
+      long denomination, long mustMixBalanceMax, boolean liquidity) {
+    if (liquidity) {
+      return denomination;
+    }
+    return mustMixBalanceMax;
   }
 
   public static String computeInputsHash(Collection<Utxo> utxos) {
