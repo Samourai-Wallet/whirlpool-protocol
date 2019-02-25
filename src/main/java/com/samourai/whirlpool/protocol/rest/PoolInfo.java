@@ -15,7 +15,7 @@ public class PoolInfo {
   public int mixAnonymitySet;
   public MixStatus mixStatus;
   public long elapsedTime;
-  public int mixNbConfirmed;
+  public int nbConfirmed;
 
   public PoolInfo() {}
 
@@ -29,7 +29,7 @@ public class PoolInfo {
       int mixAnonymitySet,
       MixStatus mixStatus,
       long elapsedTime,
-      int mixNbConfirmed) {
+      int nbConfirmed) {
     this.poolId = poolId;
     this.denomination = denomination;
     this.mustMixBalanceMin = mustMixBalanceMin;
@@ -40,6 +40,6 @@ public class PoolInfo {
     this.mixAnonymitySet = mixAnonymitySet;
     this.mixStatus = mixStatus;
     this.elapsedTime = elapsedTime;
-    this.mixNbConfirmed = mixNbConfirmed;
+    this.nbConfirmed = nbConfirmed;
   }
 }
