@@ -55,7 +55,7 @@ public class WhirlpoolProtocol {
     return getUrlFetchPools(server, ssl, null);
   }
 
-  public static long computeInputBalanceMin(
+  public static long computePremixBalanceMin(
       long denomination, long mustMixBalanceMin, boolean liquidity) {
     if (liquidity) {
       return denomination;
@@ -63,7 +63,7 @@ public class WhirlpoolProtocol {
     return mustMixBalanceMin;
   }
 
-  public static long computeInputBalanceMax(
+  public static long computePremixBalanceMax(
       long denomination, long mustMixBalanceMax, boolean liquidity) {
     if (liquidity) {
       return denomination;
