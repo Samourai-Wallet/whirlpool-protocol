@@ -5,6 +5,7 @@ import com.samourai.whirlpool.protocol.websocket.notifications.MixStatus;
 public class PoolInfo {
   public String poolId;
   public long denomination; // in satoshis
+  public long feeValue;
   public long mustMixBalanceMin;
   public long mustMixBalanceMax;
   public int minAnonymitySet;
@@ -22,6 +23,7 @@ public class PoolInfo {
   public PoolInfo(
       String poolId,
       long denomination,
+      long feeValue,
       long mustMixBalanceMin,
       long mustMixBalanceMax,
       int minAnonymitySet,
@@ -32,6 +34,7 @@ public class PoolInfo {
       int nbConfirmed) {
     this.poolId = poolId;
     this.denomination = denomination;
+    this.feeValue = feeValue;
     this.mustMixBalanceMin = mustMixBalanceMin;
     this.mustMixBalanceMax = mustMixBalanceMax;
     this.minAnonymitySet = minAnonymitySet;
