@@ -11,7 +11,7 @@ import org.apache.commons.lang3.StringUtils;
 
 public class WhirlpoolProtocol {
   /** Current protocol version. */
-  public static final String PROTOCOL_VERSION = "0.17";
+  public static final String PROTOCOL_VERSION = "0.18";
 
   // STOMP configuration
   public static final String WS_PREFIX_USER_PRIVATE = "/private";
