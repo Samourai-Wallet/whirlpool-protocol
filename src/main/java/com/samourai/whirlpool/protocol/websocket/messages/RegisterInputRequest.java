@@ -9,7 +9,6 @@ public class RegisterInputRequest {
   public boolean liquidity;
 
   public boolean testMode;
-  public String resumeConfirmedMixId;
 
   public RegisterInputRequest() {}
 
@@ -19,14 +18,12 @@ public class RegisterInputRequest {
       long utxoIndex,
       String signature,
       boolean liquidity,
-      boolean testMode,
-      String resumeConfirmedMixId) {
+      boolean testMode) {
     this.poolId = poolId;
     this.utxoHash = utxoHash;
     this.utxoIndex = utxoIndex;
     this.signature = signature;
     this.liquidity = liquidity;
     this.testMode = testMode;
-    this.resumeConfirmedMixId = resumeConfirmedMixId;
   }
 }
