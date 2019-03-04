@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.github.Samourai-Wallet</groupId>
 	<artifactId>whirlpool-protocol</artifactId>
-	<version>0.0.1</version>
+	<version>develop-SNAPSHOT</version>
 	<name>whirlpool-protocol</name>
 	<dependencies>
 		<dependency>
@@ -85,6 +85,6 @@
 	</repositories>
 	<scm>
 		<connection>scm:git:https://github.com/Samourai-Wallet/whirlpool-protocol.git</connection>
-		<tag>0.0.1</tag>
+		<tag>HEAD</tag>
 	</scm>
 </project>
