@@ -5,6 +5,9 @@
 	<artifactId>whirlpool-protocol</artifactId>
 	<version>develop-SNAPSHOT</version>
 	<name>whirlpool-protocol</name>
+	<properties>
+		<project.scm.id>samourai</project.scm.id>
+	</properties>
 	<dependencies>
 		<dependency>
 			<groupId>commons-codec</groupId>
