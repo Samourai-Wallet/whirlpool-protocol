@@ -11,7 +11,7 @@ import org.apache.commons.lang3.StringUtils;
 
 public class WhirlpoolProtocol {
   /** Current protocol version. */
-  public static final String PROTOCOL_VERSION = "0.20";
+  public static final String PROTOCOL_VERSION = "0.21";
 
   // STOMP configuration
   public static final String WS_PREFIX_USER_PRIVATE = "/private";
@@ -42,17 +42,19 @@ public class WhirlpoolProtocol {
     return url;
   }
 
-  public static String getUrlFetchPools(String server, boolean ssl, String scode) {
+  public static String getUrlFetchPools(String server, boolean ssl) {
     String protocol = ssl ? "https" : "http";
     String url = protocol + "://" + server + WhirlpoolEndpoint.REST_POOLS;
+    return url;
+  }
+
+  public static String getUrlTx0Data(String server, boolean ssl, String scode) {
+    String protocol = ssl ? "https" : "http";
+    String url = protocol + "://" + server + WhirlpoolEndpoint.REST_TX0_DATA;
     if (!StringUtils.isEmpty(url)) {
       url += "?scode=" + scode;
     }
     return url;
-  }
-
-  public static String getUrlFetchPools(String server, boolean ssl) {
-    return getUrlFetchPools(server, ssl, null);
   }
 
   public static long computePremixBalanceMin(

@@ -14,6 +14,7 @@ public class WhirlpoolEndpoint {
   public static final String REST_PREFIX = "/rest/";
   public static final String REST_REGISTER_OUTPUT = REST_PREFIX + "registerOutput";
   public static final String REST_POOLS = REST_PREFIX + "pools";
+  public static final String REST_TX0_DATA = REST_PREFIX + "tx0";
 
   public WhirlpoolEndpoint() {}
 }
