@@ -7,6 +7,7 @@ public class PoolInfo {
   public long denomination; // in satoshis
   public long feeValue;
   public long mustMixBalanceMin;
+  public long mustMixBalanceCap;
   public long mustMixBalanceMax;
   public int minAnonymitySet;
   public int minMustMix;
@@ -26,6 +27,7 @@ public class PoolInfo {
       long denomination,
       long feeValue,
       long mustMixBalanceMin,
+      long mustMixBalanceCap,
       long mustMixBalanceMax,
       int minAnonymitySet,
       int minMustMix,
@@ -38,6 +40,7 @@ public class PoolInfo {
     this.denomination = denomination;
     this.feeValue = feeValue;
     this.mustMixBalanceMin = mustMixBalanceMin;
+    this.mustMixBalanceCap = mustMixBalanceCap;
     this.mustMixBalanceMax = mustMixBalanceMax;
     this.minAnonymitySet = minAnonymitySet;
     this.minMustMix = minMustMix;
