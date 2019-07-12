@@ -30,27 +30,25 @@ public class WhirlpoolProtocol {
 
   public WhirlpoolProtocol() {}
 
-  public static String getUrlRegisterOutput(String server, boolean ssl) {
-    String protocol = ssl ? "https" : "http";
-    String url = protocol + "://" + server + WhirlpoolEndpoint.REST_REGISTER_OUTPUT;
+  public static String getUrlRegisterOutput(String server) {
+    String url = server + WhirlpoolEndpoint.REST_REGISTER_OUTPUT;
     return url;
   }
 
-  public static String getUrlConnect(String server, boolean ssl) {
-    String protocol = ssl ? "wss" : "ws";
-    String url = protocol + "://" + server + WhirlpoolEndpoint.WS_CONNECT;
+  public static String getUrlConnect(String server) {
+    server = server.replace("https://", "wss://");
+    server = server.replace("http://", "ws://");
+    String url = server + WhirlpoolEndpoint.WS_CONNECT;
     return url;
   }
 
-  public static String getUrlFetchPools(String server, boolean ssl) {
-    String protocol = ssl ? "https" : "http";
-    String url = protocol + "://" + server + WhirlpoolEndpoint.REST_POOLS;
+  public static String getUrlFetchPools(String server) {
+    String url = server + WhirlpoolEndpoint.REST_POOLS;
     return url;
   }
 
-  public static String getUrlTx0Data(String server, boolean ssl, String scode) {
-    String protocol = ssl ? "https" : "http";
-    String url = protocol + "://" + server + WhirlpoolEndpoint.REST_TX0_DATA;
+  public static String getUrlTx0Data(String server, String scode) {
+    String url = server + WhirlpoolEndpoint.REST_TX0_DATA;
     if (!StringUtils.isEmpty(url)) {
       url += "?scode=" + scode;
     }
