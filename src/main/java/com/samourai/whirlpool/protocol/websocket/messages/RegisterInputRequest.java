@@ -8,22 +8,14 @@ public class RegisterInputRequest {
   public String signature;
   public boolean liquidity;
 
-  public boolean testMode;
-
   public RegisterInputRequest() {}
 
   public RegisterInputRequest(
-      String poolId,
-      String utxoHash,
-      long utxoIndex,
-      String signature,
-      boolean liquidity,
-      boolean testMode) {
+      String poolId, String utxoHash, long utxoIndex, String signature, boolean liquidity) {
     this.poolId = poolId;
     this.utxoHash = utxoHash;
     this.utxoIndex = utxoIndex;
     this.signature = signature;
     this.liquidity = liquidity;
-    this.testMode = testMode;
   }
 }

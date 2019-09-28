@@ -47,10 +47,10 @@ public class WhirlpoolProtocol {
     return url;
   }
 
-  public static String getUrlTx0Data(String server, String scode) {
-    String url = server + WhirlpoolEndpoint.REST_TX0_DATA;
+  public static String getUrlTx0Data(String server, String poolId, String scode) {
+    String url = server + WhirlpoolEndpoint.REST_TX0_DATA + "?poolId=" + poolId;
     if (!StringUtils.isEmpty(url)) {
-      url += "?scode=" + scode;
+      url += "&scode=" + scode;
     }
     return url;
   }
