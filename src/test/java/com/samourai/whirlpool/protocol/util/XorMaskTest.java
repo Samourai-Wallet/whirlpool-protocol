@@ -2,6 +2,7 @@ package com.samourai.whirlpool.protocol.util;
 
 import com.samourai.wallet.bip47.rpc.BIP47Account;
 import com.samourai.wallet.bip47.rpc.BIP47Wallet;
+import com.samourai.wallet.bip47.rpc.java.SecretPointFactoryJava;
 import com.samourai.wallet.hd.HD_Wallet;
 import com.samourai.wallet.hd.java.HD_WalletFactoryJava;
 import com.samourai.wallet.segwit.SegwitAddress;
@@ -19,7 +20,7 @@ import org.junit.jupiter.api.Test;
 public class XorMaskTest {
   private static final NetworkParameters params = TestNet3Params.get();
   private static final CryptoTestUtil cryptoTestUtil = CryptoTestUtil.getInstance();
-  private static final XorMask xorMask = XorMask.getInstance();
+  private static final XorMask xorMask = XorMask.getInstance(SecretPointFactoryJava.getInstance());
   private static final HD_WalletFactoryJava hdWalletFactory = HD_WalletFactoryJava.getInstance();
   private BIP47Account bip47Account;
   private ECKey inputKey;

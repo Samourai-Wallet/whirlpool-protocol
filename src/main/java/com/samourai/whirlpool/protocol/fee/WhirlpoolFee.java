@@ -1,14 +1,16 @@
 package com.samourai.whirlpool.protocol.fee;
 
 import com.samourai.wallet.bip47.rpc.BIP47Account;
+import com.samourai.wallet.bip47.rpc.secretPoint.ISecretPointFactory;
 import com.samourai.whirlpool.protocol.util.XorMask;
-import java.lang.invoke.MethodHandles;
-import java.nio.ByteBuffer;
-import java.util.Arrays;
 import org.bitcoinj.core.NetworkParameters;
 import org.bitcoinj.core.TransactionOutPoint;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.lang.invoke.MethodHandles;
+import java.nio.ByteBuffer;
+import java.util.Arrays;
 
 public class WhirlpoolFee {
   private static final Logger log = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
@@ -29,6 +31,7 @@ public class WhirlpoolFee {
   }
 
   public byte[] encode(
+          ISecretPointFactory secretPointFactory,
       int feeIndice,
       byte[] feePayload,
       String paymentCode,
@@ -40,17 +43,18 @@ public class WhirlpoolFee {
     if (dataToMaskBytes == null) {
       return null;
     }
-    return XorMask.getInstance()
+    return XorMask.getInstance(secretPointFactory)
         .mask(dataToMaskBytes, paymentCode, params, input0PrivKey, input0OutPoint);
   }
 
   public static WhirlpoolFeeData decode(
+          ISecretPointFactory secretPointFactory,
       byte[] dataMasked,
       BIP47Account secretAccountBip47,
       TransactionOutPoint input0OutPoint,
       byte[] input0Pubkey) {
     byte[] dataUnmaskedBytes =
-        XorMask.getInstance().unmask(dataMasked, secretAccountBip47, input0OutPoint, input0Pubkey);
+        XorMask.getInstance(secretPointFactory).unmask(dataMasked, secretAccountBip47, input0OutPoint, input0Pubkey);
     if (dataUnmaskedBytes == null) {
       return null;
     }
