@@ -5,12 +5,11 @@ import com.samourai.wallet.bip47.rpc.PaymentCode;
 import com.samourai.wallet.bip47.rpc.secretPoint.ISecretPoint;
 import com.samourai.wallet.bip47.rpc.secretPoint.ISecretPointFactory;
 import com.samourai.wallet.hd.HD_Address;
+import java.lang.invoke.MethodHandles;
 import org.bitcoinj.core.NetworkParameters;
 import org.bitcoinj.core.TransactionOutPoint;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import java.lang.invoke.MethodHandles;
 
 public class XorMask {
   private static final Logger log = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
@@ -38,7 +37,8 @@ public class XorMask {
       throws Exception {
     HD_Address notifAddressCli =
         new PaymentCode(paymentCodeOfSecretAccount).notificationAddress(params);
-    ISecretPoint secretPointMask = secretPointFactory.newSecretPoint(input0PrivKey, notifAddressCli.getPubKey());
+    ISecretPoint secretPointMask =
+        secretPointFactory.newSecretPoint(input0PrivKey, notifAddressCli.getPubKey());
     byte[] dataMasked = PaymentCode.xorMask(dataToMask, secretPointMask, input0OutPoint);
     return dataMasked;
   }
@@ -51,7 +51,8 @@ public class XorMask {
     HD_Address notifAddressServer = secretAccount.getNotificationAddress();
     try {
       ISecretPoint secretPointUnmask =
-          secretPointFactory.newSecretPoint(notifAddressServer.getECKey().getPrivKeyBytes(), input0Pubkey);
+          secretPointFactory.newSecretPoint(
+              notifAddressServer.getECKey().getPrivKeyBytes(), input0Pubkey);
       byte[] dataUnmasked = PaymentCode.xorMask(dataMasked, secretPointUnmask, input0OutPoint);
       return dataUnmasked;
     } catch (Exception e) {
