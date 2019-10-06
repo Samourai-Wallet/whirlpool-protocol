@@ -21,17 +21,22 @@ public class WhirlpoolFee {
   public static final short FEE_PAYLOAD_LENGTH = 2;
   private static final byte[] FEE_PAYLOAD_DEFAULT = new byte[FEE_PAYLOAD_LENGTH]; // 00
 
+  private ISecretPointFactory secretPointFactory;
+
   private WhirlpoolFee() {}
 
-  public static WhirlpoolFee getInstance() {
+  public static WhirlpoolFee getInstance(ISecretPointFactory secretPointFactory) {
     if (instance == null) {
-      instance = new WhirlpoolFee();
+      instance = new WhirlpoolFee(secretPointFactory);
     }
     return instance;
   }
 
+  private WhirlpoolFee(ISecretPointFactory secretPointFactory) {
+    this.secretPointFactory = secretPointFactory;
+  }
+
   public byte[] encode(
-          ISecretPointFactory secretPointFactory,
       int feeIndice,
       byte[] feePayload,
       String paymentCode,
@@ -47,8 +52,7 @@ public class WhirlpoolFee {
         .mask(dataToMaskBytes, paymentCode, params, input0PrivKey, input0OutPoint);
   }
 
-  public static WhirlpoolFeeData decode(
-          ISecretPointFactory secretPointFactory,
+  public WhirlpoolFeeData decode(
       byte[] dataMasked,
       BIP47Account secretAccountBip47,
       TransactionOutPoint input0OutPoint,
@@ -81,7 +85,7 @@ public class WhirlpoolFee {
     return byteBuffer.array();
   }
 
-  protected static WhirlpoolFeeData decodeBytes(byte[] data) {
+  protected WhirlpoolFeeData decodeBytes(byte[] data) {
     if (data.length != FEE_LENGTH) {
       log.error("Invalid samouraiFee length: " + data.length + " vs " + FEE_LENGTH);
       return null;

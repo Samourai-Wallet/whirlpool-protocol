@@ -2,12 +2,14 @@ package com.samourai.whirlpool.protocol.fee;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import com.samourai.wallet.bip47.rpc.java.SecretPointFactoryJava;
 import org.apache.commons.lang3.StringUtils;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class WhirlpoolFeeTest {
-  private static final WhirlpoolFee whirlpoolFee = WhirlpoolFee.getInstance();
+  private static final WhirlpoolFee whirlpoolFee = WhirlpoolFee.getInstance(SecretPointFactoryJava.getInstance());
 
   @Test
   public void encodeBytes() throws Exception {
