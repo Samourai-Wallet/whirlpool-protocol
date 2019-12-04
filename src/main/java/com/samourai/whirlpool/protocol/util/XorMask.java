@@ -17,7 +17,6 @@ public class XorMask {
   private static XorMask instance = null;
   private ISecretPointFactory secretPointFactory;
 
-
   public static XorMask getInstance(ISecretPointFactory secretPointFactory) {
     if (instance == null) {
       instance = new XorMask(secretPointFactory);
