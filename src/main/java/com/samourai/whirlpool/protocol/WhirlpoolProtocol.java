@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
+
+import org.apache.commons.codec.binary.Hex;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.lang3.StringUtils;
 
@@ -78,7 +80,9 @@ public class WhirlpoolProtocol {
     }
     Collections.sort(inputs);
     String inputsString = joinStrings(";", inputs);
-    String inputsHash = DigestUtils.sha512Hex(inputsString);
+
+    // don't use DigestUtils.sha512Hex() for Android compatibility
+    String inputsHash = new String(Hex.encodeHex(DigestUtils.sha512(inputsString)));
     return inputsHash;
   }
 
