@@ -3,16 +3,16 @@ package com.samourai.whirlpool.protocol.fee;
 import com.samourai.wallet.bip47.rpc.BIP47Account;
 import com.samourai.wallet.bip47.rpc.secretPoint.ISecretPointFactory;
 import com.samourai.whirlpool.protocol.util.XorMask;
-import java.lang.invoke.MethodHandles;
-import java.nio.ByteBuffer;
-import java.util.Arrays;
 import org.bitcoinj.core.NetworkParameters;
 import org.bitcoinj.core.TransactionOutPoint;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.nio.ByteBuffer;
+import java.util.Arrays;
+
 public class WhirlpoolFee {
-  private static final Logger log = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
+  private static final Logger log = LoggerFactory.getLogger(WhirlpoolFee.class);
   private static WhirlpoolFee instance = null;
 
   private static final short FEE_VERSION = 1;
