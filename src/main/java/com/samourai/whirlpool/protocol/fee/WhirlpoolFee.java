@@ -35,12 +35,13 @@ public class WhirlpoolFee {
   public byte[] encode(
       int feeIndice,
       byte[] feePayload,
+      short partner,
       String paymentCode,
       NetworkParameters params,
       byte[] input0PrivKey,
       TransactionOutPoint input0OutPoint)
       throws Exception {
-    byte[] dataToMaskBytes = encodeBytes(feeIndice, feePayload);
+    byte[] dataToMaskBytes = encodeBytes(feeIndice, feePayload, partner);
     if (dataToMaskBytes == null) {
       return null;
     }
@@ -64,11 +65,9 @@ public class WhirlpoolFee {
 
   // encode/decode bytes
 
-  protected byte[] encodeBytes(int feeIndice, byte[] feePayload) throws Exception {
-    // 8 bytes total:
-    // - feeVersion: 2 bytes (short)
-    // - indice: 4 bytes (int)
-    // - feePayload: 2 bytes (short)
+  protected byte[] encodeBytes(int feeIndice, byte[] feePayload, short partner) throws Exception {
+    // 8 bytes total: feeVersion:short(2) | indice:int(4) | feePayload:short(2) |
+    // feePartner:short(2)
     if (feePayload != null && feePayload.length != FEE_PAYLOAD_LENGTH) {
       throw new Exception("Invalid feePayload: " + feePayload.length + " vs " + FEE_PAYLOAD_LENGTH);
     }
@@ -79,6 +78,7 @@ public class WhirlpoolFee {
       // default value at 0
       byteBuffer.put(FEE_PAYLOAD_DEFAULT);
     }
+    byteBuffer.putShort(partner);
     return byteBuffer.array();
   }
 
@@ -100,7 +100,7 @@ public class WhirlpoolFee {
       // null when default value
       feePayload = null;
     }
-
-    return new WhirlpoolFeeData(feeIndice, feePayload);
+    short feePartner = bb.getShort();
+    return new WhirlpoolFeeData(feeIndice, feePayload, feePartner);
   }
 }
