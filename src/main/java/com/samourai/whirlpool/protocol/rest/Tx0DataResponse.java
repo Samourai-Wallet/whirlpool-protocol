@@ -8,7 +8,6 @@ public class Tx0DataResponse {
   public String message;
   public String feePayload64;
   public String feeAddress;
-  public Integer feeIndice;
 
   public Tx0DataResponse() {}
 
@@ -19,8 +18,7 @@ public class Tx0DataResponse {
       int feeDiscountPercent,
       String message,
       String feePayload64,
-      String feeAddress,
-      int feeIndice) {
+      String feeAddress) {
     this.feePaymentCode = feePaymentCode;
     this.feeValue = feeValue;
     this.feeChange = feeChange;
@@ -28,6 +26,5 @@ public class Tx0DataResponse {
     this.message = message;
     this.feePayload64 = feePayload64;
     this.feeAddress = feeAddress;
-    this.feeIndice = feeIndice;
   }
 }
