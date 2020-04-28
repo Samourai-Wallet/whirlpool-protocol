@@ -3,6 +3,8 @@
 
 # whirlpool-protocol
 
+# This repository is now maintained at https://code.samourai.io/whirlpool/whirlpool-protocol 
+
 Communication protocol for [Whirlpool](https://github.com/Samourai-Wallet/Whirlpool) by Samourai-Wallet.
 
 ## Resources
